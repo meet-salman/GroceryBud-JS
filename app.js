@@ -38,7 +38,7 @@ function addTask() {
     for (let i = 0; i < listItems.length; i++) {
         lists = listItems[i];
         input.value = '';
-        ul.innerHTML += (`<li> ${lists} <button  id="edit-btn" onclick="edits(${i})"><i class="fa-solid fa-file-pen"></i></button> <button  id="dlt-btn" onclick="deletes(${i})"><i class="fa-solid fa-trash"></i></button> </li> <br/>`);
+        ul.innerHTML += (`<li  class="d-flex  justify-between"> <div> <i id="list-icon" class="fa-solid fa-circle-check"></i> &nbsp; ${lists} </div>   <div> <button  id="edit-btn" onclick="edits(${i})"><i class="fa-solid fa-file-pen"></i></button> <button  id="dlt-btn" onclick="deletes(${i})"><i class="fa-solid fa-trash"></i></button> </li> </div> <br>`);
     }
 }
 
