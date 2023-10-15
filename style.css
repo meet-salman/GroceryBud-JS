@@ -28,6 +28,10 @@ body {
 
 }
 
+#alert{
+    color: #ff0000;
+}
+
 #submit {
     margin-left: 5px;
     padding: 4px 15px;

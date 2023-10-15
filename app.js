@@ -1,4 +1,5 @@
 const input = document.querySelector('#input');
+const alert = document.querySelector('#alert');
 const submit = document.querySelector('#submit');
 const ul = document.querySelector('#ul');
 const clear = document.querySelector('#clear');
@@ -6,21 +7,31 @@ const clear = document.querySelector('#clear');
 
 let listItems = []
 
-
 clear.style.display = 'none';
+
+
+// ==>> SUBMIT BUTTON FUNCTION
 
 submit.addEventListener('click', (e) => {
     e.preventDefault();
-    
-    clear.style.display = 'inline';
 
-    let lists = input.value;
-    listItems.push(lists);
-    ul.innerHTML = ''
-    // console.log(listItems);
-    addTask()
+    if (input.value === '' || input.value === ' ') {
+        alert.innerHTML = 'Enter a value';
+    }
+    else {
+        alert.innerHTML = '';
+        clear.style.display = 'inline';
+
+        let lists = input.value;
+        listItems.push(lists);
+        ul.innerHTML = ''
+        // console.log(listItems);
+        addTask()
+    }
 })
 
+
+// ==>> LIST ITEMS ADD
 
 function addTask() {
 
@@ -32,6 +43,8 @@ function addTask() {
 }
 
 
+// ==>> LIST ITEM DELETE
+
 function deletes(index) {
     listItems.splice(index, 1);
     ul.innerHTML = ''
@@ -40,6 +53,8 @@ function deletes(index) {
 }
 
 
+// ==>> LIST ITEM EDIT
+
 function edits(index) {
     listItems.splice(index, 1, prompt("Enter edited value"));
     ul.innerHTML = ''
@@ -47,6 +62,8 @@ function edits(index) {
     addTask()
 }
 
+
+// ==>> ALL LIST CLEAR
 
 clear.addEventListener('click', () => {
     ul.innerHTML = ''
